@@ -139,3 +139,20 @@
   margin-left: 280px;
   margin-bottom: -63px;
 }
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-detail {
+  background-color: #ec4c8a;
+  color: var(--white-bg-color);
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.darker {
+  background-color: #d1306c;
+}
