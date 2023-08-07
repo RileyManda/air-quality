@@ -48,7 +48,12 @@ const Home = () => {
       <Card
         className="text-center mb-3"
         style={{
-          width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
+          width: '100%',
+          height: '150px',
+          backgroundImage: `url(${usaMap})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: '0.9',
         }}
         bg="danger"
       >
@@ -67,7 +72,7 @@ const Home = () => {
               <Card
                 className="card-container"
                 style={{
-                  width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
+                  width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '0.9',
                 }}
                 bg="danger"
               >
