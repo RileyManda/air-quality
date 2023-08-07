@@ -10,8 +10,8 @@ import { fetchData } from '../redux/home/homeSlice';
 import usaMap from '../assets/maps/world.svg';
 
 const Home = () => {
-// eslint-disable-next-line max-len
-// const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
+  // eslint-disable-next-line max-len
+  // const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
   const airQualityParameters = ['pm25'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
@@ -46,7 +46,7 @@ const Home = () => {
   return (
     <Container>
       <Card
-        className="text-center"
+        className="text-center mb-3"
         style={{
           width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
         }}
@@ -60,10 +60,10 @@ const Home = () => {
         </Card.Body>
         <Card.Footer className="text-muted">Stats by Air Quality</Card.Footer>
       </Card>
-      <Row xs={1} md={2}>
+      <Row xs={1} sm={2} md={2} lg={2} className="g-4">
         {filteredData.length > 0 ? (
           filteredData.map((location) => (
-            <Col xs={12} md={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
+            <Col key={uuidv4()} style={{ marginBottom: '20px' }}>
               <Card
                 className="card-container"
                 style={{
