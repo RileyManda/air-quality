@@ -10,7 +10,9 @@ import { fetchData } from '../redux/home/homeSlice';
 import usaMap from '../assets/maps/world.svg';
 
 const Home = () => {
-  const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
+// eslint-disable-next-line max-len
+// const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
+  const airQualityParameters = ['pm25'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
   const isLoading = useSelector((state) => state.home.isLoading);
@@ -43,19 +45,22 @@ const Home = () => {
 
   return (
     <Container>
-      <Card style={{
-        width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
-      }}
+      <Card
+        className="text-center"
+        style={{
+          width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
+        }}
+        bg="danger"
       >
         <Card.Body>
+          <Card.Title>Views</Card.Title>
           <Card.Text>
-            Views
+            Location
           </Card.Text>
         </Card.Body>
-        <Card.Img variant="top" src={usaMap} />
+        <Card.Footer className="text-muted">Stats by Air Quality</Card.Footer>
       </Card>
-
-      <Row>
+      <Row xs={1} md={2}>
         {filteredData.length > 0 ? (
           filteredData.map((location) => (
             <Col xs={12} md={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
@@ -64,6 +69,7 @@ const Home = () => {
                 style={{
                   width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
                 }}
+                bg="danger"
               >
                 <Card.Body className="card-body">
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
