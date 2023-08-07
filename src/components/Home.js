@@ -48,15 +48,16 @@ const Home = () => {
           filteredData.map((location) => (
             <Col xs={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
               <Card
+                className="card-container"
                 style={{
-                  width: '100%', height: '100%', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover',
+                  width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
                 }}
               >
-                <Card.Body>
+                <Card.Body className="card-body">
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                    <Card.Title>{location.location}</Card.Title>
+                    <Card.Title className="card-title">{location.location}</Card.Title>
                   </Link>
-                  <div>
+                  <div className="measurement-data">
                     {location.measurements.map((metric) => {
                       if (airQualityParameters.includes(metric.parameter)) {
                         return (
