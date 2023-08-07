@@ -8,17 +8,20 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <Navbar>
-      <Container>
-        <Nav className="me-auto">
-          <ul className="nav-list">
-            <li>
-              <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''}>Home</NavLink>
-            </li>
-          </ul>
-        </Nav>
-      </Container>
-    </Navbar>
+    <div>
+      <Navbar className="header">
+        <Container>
+          <Nav className="me-auto">
+            <ul className="nav-list">
+              <li>
+                <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''}>Home</NavLink>
+              </li>
+            </ul>
+          </Nav>
+        </Container>
+      </Navbar>
+
+    </div>
   );
 };
 
