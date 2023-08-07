@@ -67,7 +67,7 @@ const Home = () => {
       <Row xs={1} sm={2} md={2} lg={2} className="g-4">
         {filteredData.length > 0 ? (
           filteredData.map((location) => (
-            <Col key={uuidv4()} style={{ marginBottom: '20px' }}>
+            <Col key={uuidv4()} style={{ marginBottom: '20px', width: '50%' }}>
               <Card
                 className="card-container bg-image-opacity"
                 style={{
