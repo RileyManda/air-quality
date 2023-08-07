@@ -41,12 +41,14 @@ const Home = () => {
               <div>
                 {location.measurements.map((metric) => (
                   <div key={uuidv4()}>
-                    {metric.parameter}
-                    :
-                    {' '}
-                    {metric.value}
-                    {' '}
-                    {metric.unit}
+                    {Object.entries(metric).map(([key, value]) => (
+                      <div key={uuidv4()}>
+                        {key}
+                        :
+                        {' '}
+                        {value}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
