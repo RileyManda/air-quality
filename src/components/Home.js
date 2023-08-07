@@ -46,14 +46,13 @@ const Home = () => {
   return (
     <Container>
       <Card
-        className="text-center mb-3"
+        className="text-center mb-3 bg-image-opacity"
         style={{
           width: '100%',
           height: '150px',
           backgroundImage: `url(${usaMap})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: '0.9',
         }}
         bg="danger"
       >
@@ -70,9 +69,9 @@ const Home = () => {
           filteredData.map((location) => (
             <Col key={uuidv4()} style={{ marginBottom: '20px' }}>
               <Card
-                className="card-container"
+                className="card-container bg-image-opacity"
                 style={{
-                  width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '0.9',
+                  width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
                 }}
                 bg="danger"
               >
