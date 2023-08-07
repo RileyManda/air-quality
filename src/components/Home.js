@@ -43,10 +43,22 @@ const Home = () => {
 
   return (
     <Container>
+      <Card style={{
+        width: '100%', height: '150px', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover', backgroundPosition: 'center',
+      }}
+      >
+        <Card.Body>
+          <Card.Text>
+            Views
+          </Card.Text>
+        </Card.Body>
+        <Card.Img variant="top" src={usaMap} />
+      </Card>
+
       <Row>
         {filteredData.length > 0 ? (
           filteredData.map((location) => (
-            <Col xs={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
+            <Col xs={12} md={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
               <Card
                 className="card-container"
                 style={{
