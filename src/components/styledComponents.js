@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 // import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
+import Nav from 'react-bootstrap/Nav';
 import usaMap from '../assets/maps/world.svg';
 
 export const TopCard = styled(Card)`
@@ -18,6 +19,7 @@ export const TopCard = styled(Card)`
 
 export const ContentCard = styled(Card)`
   display: flex;
+  flex-direction: column;
   height: 170px;
   background-image: url(${usaMap});
   background-size: cover;
@@ -35,10 +37,17 @@ export const MeasurementData = styled.div`
   @media (max-width: 767px) {
     font-size: 14px;
   }
+
+    @media (max-width: 414px) {
+    font-size: 12px;
+  }
 `;
 
-// export const CardContainer = styled(Card.Body)`
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-// `;
+export const Footer = styled(Card.Footer)`
+  color: #fff;
+`;
+
+export const NavLink = styled(Nav.Link)`
+  color: #fff;
+  text-decoration: none; /* Remove underline and text decoration */
+`;

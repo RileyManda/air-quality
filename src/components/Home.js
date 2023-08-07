@@ -6,7 +6,9 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { fetchData } from '../redux/home/homeSlice';
-import { TopCard, ContentCard, MeasurementData } from './styledComponents';
+import {
+  TopCard, ContentCard, MeasurementData, Footer,
+} from './styledComponents';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -49,7 +51,7 @@ const Home = () => {
             Location
           </Card.Text>
         </Card.Body>
-        <Card.Footer className="text-muted">Stats by Air Quality</Card.Footer>
+        <Footer as="h6">Stats by Air Quality</Footer>
       </TopCard>
       <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
         {filteredData.length > 0 ? (
@@ -57,11 +59,13 @@ const Home = () => {
             <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
               <ContentCard>
                 <Card.Body
-                  className="card-body"
-                  style={{ display: 'flex', flexDirection: 'column' }}
+                  style={{ display: 'flex', flexDirection: 'column', fluid: true }}
                 >
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                    <Card.Title className="card-title">{location.location}</Card.Title>
+                    <Card.Title>
+                      {' '}
+                      <small>{location.location}</small>
+                    </Card.Title>
                   </Link>
                   <MeasurementData>
                     {location.measurements.map((metric) => {
