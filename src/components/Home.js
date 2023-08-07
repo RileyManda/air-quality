@@ -45,7 +45,7 @@ const Home = () => {
       <Card className="top-card">
         <div className="image-container" style={{ backgroundImage: `url(${bgImage})` }} />
         <div className="image-content">
-          <Card.Title className="card-title white-text">Views</Card.Title>
+          <Card.Title className="top-card-title white-text">Views</Card.Title>
         </div>
         <Card.Footer className="white-text">Stats by Air Quality</Card.Footer>
       </Card>
