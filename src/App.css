@@ -1,14 +1,4 @@
-.App {
-  text-align: center;
-  background-color: #ec4c8b;
-  margin: 0;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
+/* TopCard */
 .header {
   background-color: #ec4c8a;
   display: flex;
@@ -24,4 +14,29 @@
 .nav-list li a {
   text-decoration: none;
   color: inherit;
+}
+
+.card-info-container {
+  display: flex;
+  margin-top: 90px;
+  flex-direction: column;
+}
+
+.title-text {
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  margin: 0;
+  margin-top: 12px;
+  align-items: center;
+  padding-top: 0;
+  margin-bottom: -20px;
 }

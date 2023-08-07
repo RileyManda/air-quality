@@ -6,9 +6,6 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { fetchData } from '../redux/home/homeSlice';
-import {
-  TopCard, ContentCard, MeasurementData, Footer,
-} from './styledComponents';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -44,54 +41,59 @@ const Home = () => {
 
   return (
     <div>
-      <TopCard>
+      <Card>
         <Card.Body>
           <Card.Title>Views</Card.Title>
           <Card.Text>
             Location
           </Card.Text>
         </Card.Body>
-        <Footer as="h6">Stats by Air Quality</Footer>
-      </TopCard>
-      <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
-        {filteredData.length > 0 ? (
-          filteredData.map((location) => (
-            <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
-              <ContentCard>
-                <Card.Body
-                  style={{ display: 'flex', flexDirection: 'column', fluid: true }}
-                >
-                  <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                    <Card.Title>
-                      {' '}
-                      <small>{location.location}</small>
-                    </Card.Title>
-                  </Link>
-                  <MeasurementData>
-                    {location.measurements.map((metric) => {
-                      if (airQualityParameters.includes(metric.parameter)) {
-                        return (
-                          <div key={uuidv4()}>
-                            {metric.parameter}
-                            :
-                            {' '}
-                            {metric.value}
-                            {' '}
-                            {metric.unit}
-                          </div>
-                        );
-                      }
-                      return null;
-                    })}
-                  </MeasurementData>
-                </Card.Body>
-              </ContentCard>
-            </Col>
-          ))
-        ) : (
-          <p>No data available.</p>
-        )}
-      </Row>
+
+        <Card.Footer as="h6">Stats by Air Quality</Card.Footer>
+      </Card>
+      <div className="card-container">
+        <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
+          {filteredData.length > 0 ? (
+            filteredData.map((location) => (
+              <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
+                <Card>
+                  <Card.Body
+                    style={{ display: 'flex', flexDirection: 'column', fluid: true }}
+                  >
+                    <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                      <div className="card-info-container">
+                        <Card.Title className="title-text">
+                          {' '}
+                          {location.location}
+                        </Card.Title>
+                      </div>
+                    </Link>
+                    <div>
+                      {location.measurements.map((metric) => {
+                        if (airQualityParameters.includes(metric.parameter)) {
+                          return (
+                            <div key={uuidv4()}>
+                              {metric.parameter}
+                              :
+                              {' '}
+                              {metric.value}
+                              {' '}
+                              {metric.unit}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <p>No data available.</p>
+          )}
+        </Row>
+      </div>
     </div>
   );
 };
