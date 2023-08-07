@@ -10,9 +10,6 @@ const Header = () => {
         <li>
           <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''}>Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/details" className={location.pathname === '/details' ? 'active-link' : ''}>Details</NavLink>
-        </li>
       </ul>
     </nav>
   );
