@@ -44,12 +44,10 @@ const Home = () => {
     <div>
       <Card className="top-card">
         <div className="image-container" style={{ backgroundImage: `url(${bgImage})` }} />
-        <div className="content-container">
-          <Card.Body>
-            <Card.Title className="top-card-title">Views</Card.Title>
-          </Card.Body>
+        <div className="image-content">
+          <Card.Title className="card-title white-text">Views</Card.Title>
         </div>
-        <Card.Footer as="h6">Stats by Air Quality</Card.Footer>
+        <Card.Footer className="white-text">Stats by Air Quality</Card.Footer>
       </Card>
 
       <div className="card-container">
@@ -63,13 +61,13 @@ const Home = () => {
                   >
                     <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
                       <div className="card-info-container">
-                        <Card.Title className="title-text">
+                        <Card.Title className="title-text white-text">
                           {' '}
                           {location.location}
                         </Card.Title>
                       </div>
                     </Link>
-                    <div>
+                    <div className="measurements-text white-text">
                       {location.measurements.map((metric) => {
                         if (airQualityParameters.includes(metric.parameter)) {
                           return (

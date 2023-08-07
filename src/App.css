@@ -1,14 +1,28 @@
+:root {
+  --card-color: #ec4c8a;
+  --bg-color: #ec4c8a;
+  --white-bg-color: #fff;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 .App {
-  background-color: #ec4c8a;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--white-bg-color);
+  font-size: calc(10px + 2vmin);
+}
+
+.white-text {
+  color: var(--white-bg-color);
 }
 
 /* TopCard */
 .header {
-  background-color: #ec4c8a;
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: row;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .nav-list {
@@ -26,7 +40,7 @@
 
 .card-info-container {
   display: flex;
-  margin-top: 90px;
+  margin-top: 100px;
   flex-direction: column;
 }
 
@@ -39,14 +53,12 @@
   align-items: center;
   padding-top: 0;
   margin-bottom: -20px;
-  color: #fff;
 }
 
 /* Top card */
 .top-card {
   display: flex;
-  background-color: #ec4c8a;
-  color: #fff;
+  background-color: var(--card-color);
   font-weight: bold;
   position: relative;
   overflow: hidden;
@@ -58,21 +70,43 @@
   height: 300px;
   background-size: cover;
   background-position: right;
-  position: relative;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.image-content .card-title {
+  text-align: right;
+  font-size: 12px;
 }
 
 .content-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px;
 }
 
 .title-text {
+  font-size: 18px;
+  font-weight: 800;
   flex-wrap: wrap;
   overflow-wrap: break-word;
-  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.measurements-text {
+  font-size: 12px;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -88,12 +122,12 @@
   margin: 0;
   padding-left: 0;
   background-color: #ec4c8a;
-  color: #fff;
   font-weight: bold;
   border: none;
   align-items: flex-end;
   margin-bottom: 12px;
   margin-right: 0;
+  margin-left: 0;
   margin-top: 28px;
 }
 
