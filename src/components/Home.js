@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { fetchData } from '../redux/home/homeSlice';
 
@@ -37,18 +38,25 @@ const Home = () => {
         <div>
           {data.map((location) => (
             <div key={uuidv4()}>
-              <h2>{location.location}</h2>
+              <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                <h2>{location.location}</h2>
+              </Link>
               <div>
-                {location.measurements.map((metric) => (
-                  <div key={uuidv4()}>
-                    {metric.parameter}
-                    :
-                    {' '}
-                    {metric.value}
-                    {' '}
-                    {metric.unit}
-                  </div>
-                ))}
+                {location.measurements.map((metric) => {
+                  if (metric.parameter === 'temperature') {
+                    return (
+                      <div key={uuidv4()}>
+                        {metric.parameter}
+                        :
+                        {' '}
+                        {metric.value}
+                        {' '}
+                        {metric.unit}
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
               </div>
             </div>
           ))}
