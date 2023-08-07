@@ -2,18 +2,21 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import bgImage from '../assets/images/world.svg';
 import { fetchData } from '../redux/home/homeSlice';
 
 const Home = () => {
-  const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
-
+  const airQualityParameters = ['pm25'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
   const isLoading = useSelector((state) => state.home.isLoading);
   const error = useSelector((state) => state.home.error);
-  // Filter the data to include only air quality parameters
+
   // eslint-disable-next-line max-len
-  const filteredData = data.filter((location) => location.measurements.some((metric) => airQualityParameters.includes(metric.parameter)));
+  const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
 
   useEffect(() => {
     dispatch(fetchData());
@@ -39,36 +42,57 @@ const Home = () => {
 
   return (
     <div>
-      {filteredData.length > 0 ? (
-        <div>
-          {filteredData.map((location) => (
-            <div key={uuidv4()}>
-              <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                <h2>{location.location}</h2>
-              </Link>
-              <div>
-                {location.measurements.map((metric) => {
-                  if (airQualityParameters.includes(metric.parameter)) {
-                    return (
-                      <div key={uuidv4()}>
-                        {metric.parameter}
-                        :
-                        {' '}
-                        {metric.value}
-                        {' '}
-                        {metric.unit}
-                      </div>
-                    );
-                  }
-                  return null;
-                })}
-              </div>
-            </div>
-          ))}
+      <Card className="top-card">
+        <div className="image-container" style={{ backgroundImage: `url(${bgImage})` }} />
+        <div className="image-content">
+          <Card.Title className="top-card-title white-text">Views</Card.Title>
         </div>
-      ) : (
-        <p>No data available.</p>
-      )}
+        <Card.Footer className="white-text">Stats by Air Quality</Card.Footer>
+      </Card>
+
+      <div className="card-container">
+        <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
+          {filteredData.length > 0 ? (
+            filteredData.map((location) => (
+              <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
+                <Card className="content-card" style={{ backgroundImage: `url(${bgImage})` }}>
+                  <Card.Body
+                    style={{ display: 'flex', flexDirection: 'column', fluid: true }}
+                  >
+                    <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                      <div className="card-info-container">
+                        <Card.Title className="title-text white-text">
+                          {' '}
+                          {location.location}
+                        </Card.Title>
+                      </div>
+                    </Link>
+                    <div className="measurements-text white-text">
+                      {location.measurements.map((metric) => {
+                        if (airQualityParameters.includes(metric.parameter)) {
+                          return (
+                            <div key={uuidv4()}>
+                              {metric.parameter}
+                              :
+                              {' '}
+                              {metric.value}
+                              {' '}
+                              {metric.unit}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <p>No data available.</p>
+          )}
+        </Row>
+      </div>
     </div>
   );
 };

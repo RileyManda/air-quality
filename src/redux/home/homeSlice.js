@@ -4,7 +4,7 @@ import axios from 'axios';
 // async thunk for fetching data
 export const fetchData = createAsyncThunk('home/fetchData', async () => {
   try {
-    const response = await axios.get('https://api.openaq.org/v2/latest?limit=10&page=1&offset=0&sort=desc&radius=1000&order_by=lastUpdated&dumpRaw=false');
+    const response = await axios.get('https://api.openaq.org/v2/latest?limit=6&page=1&offset=0&sort=desc&radius=1000&order_by=lastUpdated&dumpRaw=false');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch data.');
