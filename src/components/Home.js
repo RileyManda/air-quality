@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { fetchData } from '../redux/home/homeSlice';
 import usaMap from '../assets/maps/world.svg';
 
@@ -41,44 +43,44 @@ const Home = () => {
 
   return (
     <Container>
-      {filteredData.length > 0 ? (
-        <div>
-          {filteredData.map((location) => (
-
-            <Card
-              key={uuidv4()}
-              style={{
-                marginBottom: '20px', width: '30rem', height: '25rem', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover',
-              }}
-            >
-              <Card.Body>
-                <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                  <Card.Title>{location.location}</Card.Title>
-                </Link>
-                <div>
-                  {location.measurements.map((metric) => {
-                    if (airQualityParameters.includes(metric.parameter)) {
-                      return (
-                        <div key={uuidv4()}>
-                          {metric.parameter}
-                          :
-                          {' '}
-                          {metric.value}
-                          {' '}
-                          {metric.unit}
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
-              </Card.Body>
-            </Card>
-          ))}
-        </div>
-      ) : (
-        <p>No data available.</p>
-      )}
+      <Row>
+        {filteredData.length > 0 ? (
+          filteredData.map((location) => (
+            <Col xs={6} key={uuidv4()} style={{ marginBottom: '20px' }}>
+              <Card
+                style={{
+                  width: '100%', height: '100%', backgroundImage: `url(${usaMap})`, backgroundSize: 'cover',
+                }}
+              >
+                <Card.Body>
+                  <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                    <Card.Title>{location.location}</Card.Title>
+                  </Link>
+                  <div>
+                    {location.measurements.map((metric) => {
+                      if (airQualityParameters.includes(metric.parameter)) {
+                        return (
+                          <div key={uuidv4()}>
+                            {metric.parameter}
+                            :
+                            {' '}
+                            {metric.value}
+                            {' '}
+                            {metric.unit}
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
+      </Row>
     </Container>
   );
 };
