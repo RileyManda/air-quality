@@ -5,10 +5,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { fetchData } from '../redux/home/homeSlice';
 
 const Home = () => {
+  const airQualityParameters = ['pm10', 'pm25', 'um005', 'um003', 'um010', 'um050', 'um100', 'um025', 'pm1'];
+
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
   const isLoading = useSelector((state) => state.home.isLoading);
   const error = useSelector((state) => state.home.error);
+  // Filter the data to include only air quality parameters
+  // eslint-disable-next-line max-len
+  const filteredData = data.filter((location) => location.measurements.some((metric) => airQualityParameters.includes(metric.parameter)));
 
   useEffect(() => {
     dispatch(fetchData());
@@ -34,16 +39,16 @@ const Home = () => {
 
   return (
     <div>
-      {data.length > 0 ? (
+      {filteredData.length > 0 ? (
         <div>
-          {data.map((location) => (
+          {filteredData.map((location) => (
             <div key={uuidv4()}>
               <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
                 <h2>{location.location}</h2>
               </Link>
               <div>
                 {location.measurements.map((metric) => {
-                  if (metric.parameter === 'temperature') {
+                  if (airQualityParameters.includes(metric.parameter)) {
                     return (
                       <div key={uuidv4()}>
                         {metric.parameter}
