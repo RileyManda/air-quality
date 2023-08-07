@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import bgImage from '../assets/images/world.svg';
 import { fetchData } from '../redux/home/homeSlice';
 
 const Home = () => {
@@ -41,22 +42,22 @@ const Home = () => {
 
   return (
     <div>
-      <Card>
-        <Card.Body>
-          <Card.Title>Views</Card.Title>
-          <Card.Text>
-            Location
-          </Card.Text>
-        </Card.Body>
-
+      <Card className="top-card">
+        <div className="image-container" style={{ backgroundImage: `url(${bgImage})` }} />
+        <div className="content-container">
+          <Card.Body>
+            <Card.Title className="top-card-title">Views</Card.Title>
+          </Card.Body>
+        </div>
         <Card.Footer as="h6">Stats by Air Quality</Card.Footer>
       </Card>
+
       <div className="card-container">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
           {filteredData.length > 0 ? (
             filteredData.map((location) => (
               <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
-                <Card>
+                <Card className="content-card" style={{ backgroundImage: `url(${bgImage})` }}>
                   <Card.Body
                     style={{ display: 'flex', flexDirection: 'column', fluid: true }}
                   >
