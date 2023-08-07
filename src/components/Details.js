@@ -26,6 +26,7 @@ const Details = () => {
               {measurement.value}
               {' '}
               {measurement.unit}
+              {measurement.lastUpdated}
             </p>
           </div>
         ))}
