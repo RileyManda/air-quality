@@ -169,6 +169,8 @@
 }
 
 .card-detail {
+  display: flex;
+  flex-direction: row;
   background-color: #ec4c8a;
   color: var(--white-bg-color);
   font-weight: bold;
