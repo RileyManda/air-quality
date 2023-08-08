@@ -25,23 +25,28 @@ const Details = () => {
     <div>
       <Card className="top-card">
         <div className="image-container" style={{ backgroundImage: `url(${Map1})` }} />
-        <div className="detail-content">
+        <div className="detail-title-container">
           <Card.Title className="detail-top-title white-text"><h2>{locationData.location}</h2></Card.Title>
+          <Card.Title className="detail-sub-text white-text"><h2>{locationData.country}</h2></Card.Title>
         </div>
         <Card.Footer className="detail-text white-text">City/Town BREAKDOWN-2023</Card.Footer>
       </Card>
-      <div className="detail-list">
+      <div className="detail-list-container">
         {locationData.measurements.map((metric, index) => (
           <div key={metric.parameter} className={`card-detail ${index % 2 === 1 ? 'darker' : ''}`}>
-            {metric.parameter}
-            :
-            {' '}
-            {metric.value}
-            {' '}
-            {metric.unit}
+            <div className="card-detail-label">
+              {metric.parameter}
+              :
+            </div>
+            <div className="card-detail-value">
+              {metric.value}
+              {' '}
+              {metric.unit}
+            </div>
           </div>
         ))}
       </div>
+
     </div>
   );
 };
