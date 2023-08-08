@@ -16,12 +16,12 @@ const Header = () => (
             2015
           </Navbar.Text>
         </Navbar.Brand>
-        <Navbar.Brand className="justify-content-end" style={{ marginRight: '5px', color: '#fff' }}>
+        <Navbar.Brand className="justify-content-end" style={{ marginRight: '12px', color: '#fff' }}>
           <Navbar.Text>
-            <FontAwesomeIcon icon={faMicrophone} style={{ marginRight: '5px', color: '#fff' }} />
+            <FontAwesomeIcon icon={faMicrophone} style={{ marginRight: '16px', color: '#fff' }} />
           </Navbar.Text>
           <Navbar.Text>
-            <FontAwesomeIcon icon={faGear} style={{ marginRight: '5px', color: '#fff' }} />
+            <FontAwesomeIcon icon={faGear} style={{ marginLeft: '15px', color: '#fff' }} />
           </Navbar.Text>
         </Navbar.Brand>
       </Container>
