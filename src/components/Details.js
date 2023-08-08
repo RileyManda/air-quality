@@ -31,10 +31,10 @@ const Details = () => {
         views="700 Views"
         footerText="CITY/TOWN BREAKDOWN-2013"
       />
-      <div className="detail-list-container">
+      <div className="flex-container flex-column">
         {locationData.measurements.map((metric, index) => (
-          <div key={metric.parameter} className={`card-detail ${index % 2 === 1 ? 'darker' : ''}`}>
-            <div className="card-detail-label">
+          <div key={metric.parameter} className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}>
+            <div className="card-detail-label flex-container ">
               {metric.parameter}
               :
             </div>

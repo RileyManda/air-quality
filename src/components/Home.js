@@ -32,7 +32,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="spinner-container">
+      <div className="spinner-container flex-container">
         <Spinner animation="border" variant="primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
@@ -58,7 +58,7 @@ const Home = () => {
         views="890 Views"
         footerText="Stats by air preassure"
       />
-      <div className="card-container">
+      <div className="card-container margin-0 paddig-0">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
           {filteredData.length > 0 ? (
             filteredData.map((location, index) => {
@@ -66,17 +66,17 @@ const Home = () => {
               return (
                 <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                    <Card className={`content-card ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
+                    <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
                       <Card.Header className="position-absolute top-0 end-0">
                         <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} />
                       </Card.Header>
                       <Card.Body
                         style={{ display: 'flex', flexDirection: 'column', fluid: true }}
-                        className="card-content"
+                        className="card-content flex-container flex-column"
                       >
 
-                        <div className="card-info-container">
-                          <Card.Title className="title-text white-text">
+                        <div className="card-info-container flex-container flex-column">
+                          <Card.Title className="title-text white-text bold">
                             {' '}
                             {location.location}
                           </Card.Title>

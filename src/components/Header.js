@@ -8,7 +8,7 @@ import {
 
 const Header = () => {
   const location = useLocation();
-  const isDetailPage = location.pathname.includes('/detail'); // Replace 'detail' with actual detail route segment
+  const isDetailPage = location.pathname.includes('/detail');
 
   return (
     <Navbar>
