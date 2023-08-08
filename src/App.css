@@ -1,6 +1,7 @@
 :root {
   --card-color: #ec4c8a;
   --bg-color: #ec4c8a;
+  --bg-color-light: #d1306c;
   --white-bg-color: #fff;
 }
 
@@ -40,8 +41,8 @@
 
 .card-info-container {
   display: flex;
-  margin-top: 100px;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .card-container {
@@ -71,6 +72,7 @@
   overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 65px;
 }
 
 .measurements-text {
@@ -79,18 +81,19 @@
   overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 65px;
 }
 
 /* Content cards */
 .content-card {
   display: flex;
   flex-direction: column;
-  height: 200px;
-  background-size: cover;
-  background-position: center center;
+  background-size: 140px 60%;
+  background-repeat: no-repeat;
+  background-position: left top;
   width: 100%;
   margin: 0;
-  padding-left: 0;
+  padding-top: 35px;
   background-color: var(--bg-color);
   font-weight: bold;
   border: none;
@@ -99,6 +102,7 @@
   margin-right: 0;
   margin-left: 0;
   margin-top: 28px;
+  padding-left: 0;
 }
 
 .top-card-title {
@@ -106,6 +110,7 @@
   margin-right: auto;
   margin-left: 280px;
   margin-bottom: -63px;
+  height: 250px;
 }
 
 /* Top card */
@@ -116,8 +121,9 @@
   font-weight: bold;
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 255px;
   padding-top: 8px;
+  margin-bottom: 30px;
 }
 
 .image-container {
@@ -129,14 +135,25 @@
   background-position: left;
   align-items: flex-start;
   margin-bottom: 18px;
+  margin-left: 10px;
 }
 
-.detail-title-container {
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.top-title-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 10px;
   margin-top: -55px;
+  margin-left: 250px;
   align-items: flex-end;
 }
 
@@ -169,23 +186,24 @@
 }
 
 .card-detail {
-  background-color: #ec4c8a;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-color);
   color: var(--white-bg-color);
   font-weight: bold;
-  padding: 10px;
-  margin-bottom: 12px;
+  padding: 20px;
 }
 
 .darker {
-  background-color: #d1306c;
+  background-color: var(--bg-color-light);
 }
 
-.detail-top-title {
-  margin-top: -66px;
+.top-title {
+  margin-top: -55px;
   align-items: self-end;
 }
 
-.detail-top-subtext {
+.top-subtext {
   margin-top: -60px;
 }
 

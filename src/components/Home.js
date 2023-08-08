@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import bgImage from '../assets/images/world.svg';
+import Map1 from '../assets/images/map1.png';
+import Map4 from '../assets/images/map4.png';
 import { fetchData } from '../redux/home/homeSlice';
 
 const Home = () => {
@@ -43,11 +44,12 @@ const Home = () => {
   return (
     <div>
       <Card className="top-card">
-        <div className="image-container" style={{ backgroundImage: `url(${bgImage})` }} />
-        <div className="image-content">
-          <Card.Title className="top-card-title white-text">Views</Card.Title>
+        <div className="image-container" style={{ backgroundImage: `url(${Map1})` }} />
+        <div className="top-title-container">
+          <Card.Title className="top-title white-text"><h2>USA</h2></Card.Title>
+          <Card.Title className="top-sub-text white-text"><h2>696 Views</h2></Card.Title>
         </div>
-        <Card.Footer className="white-text">Stats by Air Quality</Card.Footer>
+        <Card.Footer className="detail-text white-text">Stats by Air Quality</Card.Footer>
       </Card>
 
       <div className="card-container">
@@ -55,9 +57,10 @@ const Home = () => {
           {filteredData.length > 0 ? (
             filteredData.map((location) => (
               <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
-                <Card className="content-card" style={{ backgroundImage: `url(${bgImage})` }}>
+                <Card className="content-card" style={{ backgroundImage: `url(${Map4})` }}>
                   <Card.Body
                     style={{ display: 'flex', flexDirection: 'column', fluid: true }}
+                    className="card-content"
                   >
                     <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
                       <div className="card-info-container">
