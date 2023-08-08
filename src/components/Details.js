@@ -29,7 +29,7 @@ const Details = () => {
           <Card.Title className="top-title white-text"><h2>{locationData.location}</h2></Card.Title>
           <Card.Title className="sub-text white-text"><h2>{locationData.country}</h2></Card.Title>
         </div>
-        <Card.Footer className="top-sub-text white-text">City/Town BREAKDOWN-2023</Card.Footer>
+        <Card.Footer className="footer-text white-text">City/Town BREAKDOWN-2023</Card.Footer>
       </Card>
       <div className="detail-list-container">
         {locationData.measurements.map((metric, index) => (

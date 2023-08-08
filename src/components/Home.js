@@ -48,7 +48,7 @@ const Home = () => {
           <Card.Title className="top-title white-text"><h2>USA</h2></Card.Title>
           <Card.Title className="top-sub-text white-text"><h2>696 Views</h2></Card.Title>
         </div>
-        <Card.Footer className="detail-text white-text">Stats by Air Quality</Card.Footer>
+        <Card.Footer className="footer-text white-text">Stats by Air Quality</Card.Footer>
       </Card>
 
       <div className="card-container">
