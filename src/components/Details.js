@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Map1 from '../assets/images/map1.png';
+import Map1 from '../assets/images/map1.svg';
 
 const Details = () => {
   const { location } = useParams();

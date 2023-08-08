@@ -1,7 +1,12 @@
+/* default app theme 4369b2 */
+
+/* top card color app theme 568ae6 */
+
 :root {
-  --card-color: #ec4c8a;
-  --bg-color: #ec4c8a;
-  --bg-color-light: #d1306c;
+  --top-card-color: #568ae6;
+  --default-bg-theme: #4268af;
+  --bg-color-light: #4369b2;
+  --bg-color-dark: #3d60a2;
   --white-bg-color: #fff;
 }
 
@@ -10,7 +15,7 @@
 
 .App {
   font-family: 'Lato', sans-serif;
-  background-color: var(--bg-color);
+  background-color: var(--default-bg-theme);
   color: var(--white-bg-color);
   font-size: calc(10px + 2vmin);
 }
@@ -24,7 +29,7 @@
 /* Nav */
 
 .header {
-  background-color: var(--bg-color);
+  background-color: var(--default-bg-theme);
   display: flex;
   align-items: center;
 }
@@ -129,18 +134,15 @@
   background-size: 140px 60%;
   background-repeat: no-repeat;
   background-position: left top;
-  width: 100%;
-  margin: 0;
-  padding-top: 35px;
-  background-color: var(--bg-color);
+  background-color: var(--default-bg-theme);
   font-weight: bold;
   border: none;
   align-items: flex-end;
   margin-bottom: 0;
   margin-right: 0;
   margin-left: 0;
-  margin-top: 28px;
-  padding-left: 0;
+  margin-top: -25px;
+  padding-top: 45px;
 }
 
 .top-card-title {
@@ -155,7 +157,7 @@
 
 .top-card {
   display: flex;
-  background-color: var(--card-color);
+  background-color: var(--top-card-color);
   font-weight: bold;
   position: relative;
   overflow: hidden;
@@ -226,14 +228,14 @@
 .card-detail {
   display: flex;
   flex-direction: row;
-  background-color: var(--bg-color);
+  background-color: var(--default-bg-theme);
   color: var(--white-bg-color);
   font-weight: bold;
   padding: 20px;
 }
 
 .darker {
-  background-color: var(--bg-color-light);
+  background-color: var(--bg-color-dark);
 }
 
 .top-title {
