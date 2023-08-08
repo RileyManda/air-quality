@@ -13,11 +13,14 @@ const Header = () => {
   return (
     <Navbar>
       <Container>
-        <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''} style={{ textDecoration: 'none', color: '#fff' }}>
+        <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''} style={{ color: '#fff', textDecoration: 'none' }}>
           <FontAwesomeIcon icon={faChevronLeft} style={{ marginRight: '5px' }} />
           {isDetailPage ? '' : '2015'}
         </NavLink>
-        <Navbar.Brand className="white-text">
+        <Navbar.Brand
+          className="white-text"
+          style={{ textDecoration: 'none', color: '#fff' }}
+        >
           {isDetailPage ? 'town/city view' : 'most views'}
         </Navbar.Brand>
         <Navbar.Brand className="justify-content-end" style={{ marginRight: '12px', color: '#fff' }}>
