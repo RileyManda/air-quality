@@ -6,16 +6,17 @@ import { faChevronLeft, faMicrophone, faCog } from '@fortawesome/free-solid-svg-
 
 const Header = () => {
   const location = useLocation();
+  const isDetailPage = location.pathname.includes('/detail'); // Replace 'detail' with actual detail route segment
 
   return (
     <Navbar>
       <Container>
         <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''} style={{ textDecoration: 'none', color: '#fff' }}>
           <FontAwesomeIcon icon={faChevronLeft} style={{ marginRight: '5px' }} />
-          2015
+          {isDetailPage ? '' : '2015'}
         </NavLink>
         <Navbar.Brand className="white-text">
-          most views
+          {isDetailPage ? 'town/city view' : 'most views'}
         </Navbar.Brand>
         <Navbar.Brand className="justify-content-end" style={{ marginRight: '12px', color: '#fff' }}>
           <Navbar.Text>
