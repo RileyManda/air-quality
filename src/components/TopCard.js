@@ -8,7 +8,7 @@ const TopCard = ({
   <Card className="top-card flex-container">
     <div className="image-container" style={{ backgroundImage: `url(${backgroundImage})` }} />
     <div className="top-title-container flex-container flex-column flex-end">
-      <Card.Title className="top-title white-text"><h2>{location}</h2></Card.Title>
+      <Card.Title className="top-title white-text ellipsis-multiline-2"><h2>{location}</h2></Card.Title>
       <Card.Title className="sub-text white-text bold"><h2>{views}</h2></Card.Title>
     </div>
     <Card.Footer className="footer-text white-text">{footerText}</Card.Footer>

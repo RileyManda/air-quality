@@ -6,12 +6,12 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
-import Spinner from 'react-bootstrap/Spinner';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
 import TopCard from './TopCard';
+import LoadingSpinner from './Spinner';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -32,17 +32,13 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="spinner-container flex-container">
-        <Spinner animation="border" variant="primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div>
+      <LoadingSpinner />
     );
   }
 
   if (error) {
     return (
-      <p>
+      <p className="white-text">
         Error:
         {' '}
         {error}
@@ -58,7 +54,7 @@ const Home = () => {
         views="890 Views"
         footerText="Stats by air preassure"
       />
-      <div className="card-container margin-0 paddig-0">
+      <div className="card-container margin-0 paddig-0 wrap">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
           {filteredData.length > 0 ? (
             filteredData.map((location, index) => {
@@ -76,12 +72,12 @@ const Home = () => {
                       >
 
                         <div className="card-info-container flex-container flex-column">
-                          <Card.Title className="title-text white-text bold">
+                          <Card.Title className="title-text white-text bold ellipsis- multiline-2">
                             {' '}
                             {location.location}
                           </Card.Title>
                         </div>
-                        <div className="measurements-text white-text">
+                        <div className="measurements-text white-text wrap-break">
                           {location.measurements.map((metric) => {
                             if (airQualityParameters.includes(metric.parameter)) {
                               return (

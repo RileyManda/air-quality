@@ -16,7 +16,6 @@
 .App {
   font-family: 'Lato', sans-serif;
   background-color: var(--default-bg-theme);
-  font-size: calc(10px + 2vmin);
 }
 
 .white-text {
@@ -59,8 +58,26 @@
   align-items: flex-end;
 }
 
-.card-container {
+.wrap-break {
   flex-wrap: wrap;
+  overflow-wrap: break-word;
+}
+
+.ellipsis-multiline-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: horizontal;
+}
+
+.top-title {
+  margin-left: 12px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.card-container {
   overflow-wrap: break-word;
   margin-top: 12px;
   align-items: center;
@@ -69,8 +86,6 @@
 
 .title-text {
   font-size: 18px;
-  flex-wrap: wrap;
-  overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 65px;
@@ -78,8 +93,6 @@
 
 .measurements-text {
   font-size: 12px;
-  flex-wrap: wrap;
-  overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 65px;
@@ -96,8 +109,7 @@
   margin-bottom: 0;
   margin-right: 0;
   margin-left: 0;
-  margin-top: -32px;
-  padding-top: 45px;
+  padding-top: 26px;
 }
 
 .sub-text {
@@ -139,7 +151,7 @@
 .top-title-container {
   flex: 1;
   padding: 10px;
-  margin-top: -109px;
+  margin-top: -90px;
   margin-left: 250px;
 }
 
@@ -179,6 +191,7 @@
 /* footer */
 .footer-text {
   background-color: var(--bg-color-dark);
+  margin-bottom: 0;
 }
 
 .spinner-container {
