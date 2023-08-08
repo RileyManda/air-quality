@@ -2,7 +2,9 @@ import React from 'react';
 import { Navbar, Container } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faMicrophone, faCog } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft, faMicrophone, faCog,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const location = useLocation();

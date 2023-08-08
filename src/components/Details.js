@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Map1 from '../assets/images/map1.svg';
@@ -43,6 +45,7 @@ const Details = () => {
               {' '}
               {metric.unit}
             </div>
+            <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
           </div>
         ))}
       </div>

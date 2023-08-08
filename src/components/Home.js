@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
@@ -57,6 +59,7 @@ const Home = () => {
             filteredData.map((location, index) => (
               <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
                 <Card className={`content-card ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
+                  <Card.Header className="position-absolute top-0 end-0"><FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} /></Card.Header>
                   <Card.Body
                     style={{ display: 'flex', flexDirection: 'column', fluid: true }}
                     className="card-content"
