@@ -149,9 +149,9 @@
 }
 
 .top-title-container {
-  flex: 1;
+  flex: 1 1;
   padding: 10px;
-  margin-top: -90px;
+  margin-top: -172px;
   margin-left: 250px;
 }
 
@@ -173,12 +173,6 @@
 
 .darker {
   background-color: var(--bg-color-dark);
-}
-
-.top-title {
-  margin-top: -55px;
-  align-items: self-end;
-  font-weight: 900;
 }
 
 .top-subtext {
