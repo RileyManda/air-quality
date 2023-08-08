@@ -47,6 +47,10 @@ const Home = () => {
     <div>
       <TopCard
         backgroundImage={Map1}
+        location="USA"
+        views="890"
+        footerText="Stats by air preassure"
+
       />
       <div className="card-container">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
