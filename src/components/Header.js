@@ -8,12 +8,17 @@ const Header = () => (
   <div>
     <Navbar>
       <Container className="white-text">
-        <Navbar.Brand className="justify-content-start white-tex">
+        <Navbar.Brand className="justify-content-start white-text">
           <Navbar.Brand>
             <FontAwesomeIcon icon={faChevronLeft} style={{ marginRight: '5px', color: '#fff' }} />
           </Navbar.Brand>
           <Navbar.Text style={{ marginRight: '5px', color: '#fff' }}>
             2015
+          </Navbar.Text>
+        </Navbar.Brand>
+        <Navbar.Brand className="justify-content-start white-text">
+          <Navbar.Text style={{ marginRight: '5px', color: '#fff' }}>
+            most views
           </Navbar.Text>
         </Navbar.Brand>
         <Navbar.Brand className="justify-content-end" style={{ marginRight: '12px', color: '#fff' }}>
