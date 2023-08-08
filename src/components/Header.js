@@ -1,30 +1,35 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Container } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft, faMicrophone, faCog,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const location = useLocation();
+  const isDetailPage = location.pathname.includes('/detail');
 
   return (
-    <div>
-      <Navbar className="header">
-        <Container>
-          <Nav className="me-auto">
-            <ul className="nav-list">
-              <li>
-                <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''} style={{ textDecoration: 'none' }}>
-                  <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '5px' }} />
-                </NavLink>
-              </li>
-            </ul>
-          </Nav>
-        </Container>
-      </Navbar>
-    </div>
+    <Navbar>
+      <Container>
+        <NavLink to="/" className={location.pathname === '/' ? 'active-link' : ''} style={{ textDecoration: 'none', color: '#fff' }}>
+          <FontAwesomeIcon icon={faChevronLeft} style={{ marginRight: '5px' }} />
+          {isDetailPage ? '' : '2015'}
+        </NavLink>
+        <Navbar.Brand className="white-text">
+          {isDetailPage ? 'town/city view' : 'most views'}
+        </Navbar.Brand>
+        <Navbar.Brand className="justify-content-end" style={{ marginRight: '12px', color: '#fff' }}>
+          <Navbar.Text>
+            <FontAwesomeIcon icon={faMicrophone} style={{ marginRight: '16px', color: '#fff' }} />
+          </Navbar.Text>
+          <Navbar.Text>
+            <FontAwesomeIcon icon={faCog} style={{ marginLeft: '15px', color: '#fff' }} />
+          </Navbar.Text>
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
   );
 };
 

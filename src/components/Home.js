@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
-import Map1 from '../assets/images/map1.png';
-import Map4 from '../assets/images/map4.png';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
+import Map1 from '../assets/images/map1.svg';
+import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
+import TopCard from './TopCard';
+import LoadingSpinner from './Spinner';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -24,16 +28,17 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('Data:', data);
   }, [data]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <LoadingSpinner />
+    );
   }
 
   if (error) {
     return (
-      <p>
+      <p className="white-text">
         Error:
         {' '}
         {error}
@@ -43,54 +48,60 @@ const Home = () => {
 
   return (
     <div>
-      <Card className="top-card">
-        <div className="image-container" style={{ backgroundImage: `url(${Map1})` }} />
-        <div className="top-title-container">
-          <Card.Title className="top-title white-text"><h2>USA</h2></Card.Title>
-          <Card.Title className="top-sub-text white-text"><h2>696 Views</h2></Card.Title>
-        </div>
-        <Card.Footer className="detail-text white-text">Stats by Air Quality</Card.Footer>
-      </Card>
-
-      <div className="card-container">
+      <TopCard
+        backgroundImage={Map1}
+        location="USA"
+        views="890 Views"
+        footerText="Stats by air preassure"
+      />
+      <div className="card-container margin-0 paddig-0 wrap">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
           {filteredData.length > 0 ? (
-            filteredData.map((location) => (
-              <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
-                <Card className="content-card" style={{ backgroundImage: `url(${Map4})` }}>
-                  <Card.Body
-                    style={{ display: 'flex', flexDirection: 'column', fluid: true }}
-                    className="card-content"
-                  >
-                    <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                      <div className="card-info-container">
-                        <Card.Title className="title-text white-text">
-                          {' '}
-                          {location.location}
-                        </Card.Title>
-                      </div>
-                    </Link>
-                    <div className="measurements-text white-text">
-                      {location.measurements.map((metric) => {
-                        if (airQualityParameters.includes(metric.parameter)) {
-                          return (
-                            <div key={uuidv4()}>
-                              {metric.parameter}
-                              :
-                              {' '}
-                              {metric.value}
-                              {' '}
-                              {metric.unit}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
+            filteredData.map((location, index) => {
+              const measurementKey = uuidv4();
+              return (
+                <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
+                  <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                    <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
+                      <Card.Header className="position-absolute top-0 end-0">
+                        <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} />
+                      </Card.Header>
+                      <Card.Body
+                        style={{ display: 'flex', flexDirection: 'column', fluid: true }}
+                        className="card-content flex-container flex-column"
+                      >
+
+                        <div className="card-info-container flex-container flex-column">
+                          <Card.Title className="title-text white-text bold ellipsis- multiline-2">
+                            {' '}
+                            {location.location}
+                          </Card.Title>
+                        </div>
+                        <div className="measurements-text white-text wrap-break">
+                          {location.measurements.map((metric) => {
+                            if (airQualityParameters.includes(metric.parameter)) {
+                              return (
+                                <div key={measurementKey} className="measurements-item">
+                                  {metric.parameter}
+                                  {' '}
+                                  :
+                                  {' '}
+                                  {metric.value}
+                                  {' '}
+                                  {metric.unit}
+                                </div>
+                              );
+                            }
+                            return null;
+                          })}
+                        </div>
+
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </Col>
+              );
+            })
           ) : (
             <p>No data available.</p>
           )}

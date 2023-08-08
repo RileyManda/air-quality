@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Map1 from '../assets/images/map1.png';
+import TopCard from './TopCard';
+import Map4 from '../assets/images/map4.svg';
 
 const Details = () => {
   const { location } = useParams();
@@ -23,18 +25,16 @@ const Details = () => {
 
   return (
     <div>
-      <Card className="top-card">
-        <div className="image-container" style={{ backgroundImage: `url(${Map1})` }} />
-        <div className="top-title-container">
-          <Card.Title className="top-title white-text"><h2>{locationData.location}</h2></Card.Title>
-          <Card.Title className="sub-text white-text"><h2>{locationData.country}</h2></Card.Title>
-        </div>
-        <Card.Footer className="top-sub-text white-text">City/Town BREAKDOWN-2023</Card.Footer>
-      </Card>
-      <div className="detail-list-container">
+      <TopCard
+        backgroundImage={Map4}
+        location={locationData.location}
+        views="700 Views"
+        footerText="CITY/TOWN BREAKDOWN-2013"
+      />
+      <div className="flex-container flex-column">
         {locationData.measurements.map((metric, index) => (
-          <div key={metric.parameter} className={`card-detail ${index % 2 === 1 ? 'darker' : ''}`}>
-            <div className="card-detail-label">
+          <div key={metric.parameter} className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}>
+            <div className="card-detail-label flex-container ">
               {metric.parameter}
               :
             </div>
@@ -42,9 +42,11 @@ const Details = () => {
               {metric.value}
               {' '}
               {metric.unit}
+              <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
             </div>
           </div>
         ))}
+
       </div>
 
     </div>
