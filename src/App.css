@@ -20,24 +20,63 @@
 }
 
 /* TopCard */
+
+/* Nav */
+
 .header {
   background-color: var(--bg-color);
   display: flex;
-  flex-direction: row;
+  align-items: center;
+}
+
+.icons-container {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.year {
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .nav-list {
-  margin-left: -28px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-list li {
-  list-style: none;
+  margin: 0 15px;
+  color: #fff;
 }
 
 .nav-list li a {
   text-decoration: none;
   color: inherit;
+  font-size: 16px;
 }
+
+.center-text {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Menu style */
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Nav END */
 
 .card-info-container {
   display: flex;
