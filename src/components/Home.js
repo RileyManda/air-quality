@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Map1 from '../assets/images/map1.png';
-import Map10 from '../assets/images/map10.png';
+import Map7 from '../assets/images/map11.png';
 import { fetchData } from '../redux/home/homeSlice';
 
 const Home = () => {
@@ -24,7 +24,6 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('Data:', data);
   }, [data]);
 
   if (isLoading) {
@@ -57,7 +56,7 @@ const Home = () => {
           {filteredData.length > 0 ? (
             filteredData.map((location) => (
               <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
-                <Card className="content-card" style={{ backgroundImage: `url(${Map10})` }}>
+                <Card className="content-card" style={{ backgroundImage: `url(${Map7})` }}>
                   <Card.Body
                     style={{ display: 'flex', flexDirection: 'column', fluid: true }}
                     className="card-content"

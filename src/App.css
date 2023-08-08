@@ -85,7 +85,6 @@
 }
 
 .card-container {
-  display: flex;
   flex-wrap: wrap;
   overflow-wrap: break-word;
   margin: 0;
