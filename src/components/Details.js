@@ -44,10 +44,11 @@ const Details = () => {
               {metric.value}
               {' '}
               {metric.unit}
+              <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
             </div>
-            <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
           </div>
         ))}
+
       </div>
 
     </div>
