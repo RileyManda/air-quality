@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
@@ -30,7 +31,13 @@ const Home = () => {
   }, [data]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinner-container">
+        <Spinner animation="border" variant="primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   if (error) {
@@ -50,7 +57,6 @@ const Home = () => {
         location="USA"
         views="890 Views"
         footerText="Stats by air preassure"
-
       />
       <div className="card-container">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">

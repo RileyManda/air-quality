@@ -29,7 +29,7 @@ const Details = () => {
         backgroundImage={Map4}
         location={locationData.location}
         views="700 Views"
-        footerText="Stats by air preassure"
+        footerText="CITY/TOWN BREAKDOWN-2013"
       />
       <div className="detail-list-container">
         {locationData.measurements.map((metric, index) => (
