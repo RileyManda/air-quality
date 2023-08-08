@@ -62,26 +62,29 @@
   font-weight: bold;
   position: relative;
   overflow: hidden;
+  height: auto;
 }
 
 .image-container {
   flex: 1;
-  min-height: 200px;
-  height: 300px;
+  min-height: 180px;
+  height: 200px;
+  width: 50%;
   background-size: cover;
-  background-position: right;
+  background-position: left;
+  align-items: flex-start;
 }
 
-.image-content {
+.detail-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   padding: 10px;
+  align-items: flex-end;
 }
 
-.image-content .card-title {
-  text-align: right;
+.detail-content .card-title {
+  align-items: flex-end;
   font-size: 18px;
   font-weight: 800;
   margin-top: -28px;
@@ -155,4 +158,8 @@
 
 .darker {
   background-color: #d1306c;
+}
+
+.detail-top-title {
+  margin-top: 23px;
 }
