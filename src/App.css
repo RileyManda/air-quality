@@ -88,12 +88,12 @@
 .content-card {
   display: flex;
   flex-direction: column;
-  height: 200px;
-  background-size: cover;
-  background-position: center center;
+  background-size: 140px 60%;
+  background-repeat: no-repeat;
+  background-position: left top;
   width: 100%;
   margin: 0;
-  padding-left: 0;
+  padding-top: 35px;
   background-color: var(--bg-color);
   font-weight: bold;
   border: none;
@@ -102,6 +102,7 @@
   margin-right: 0;
   margin-left: 0;
   margin-top: 28px;
+  padding-left: 0;
 }
 
 .top-card-title {
@@ -120,8 +121,9 @@
   font-weight: bold;
   position: relative;
   overflow: hidden;
-  height: 220px;
+  height: 255px;
   padding-top: 8px;
+  margin-bottom: 30px;
 }
 
 .image-container {
@@ -151,7 +153,7 @@
   flex-direction: column;
   padding: 10px;
   margin-top: -55px;
-  margin-left: 265px;
+  margin-left: 250px;
   align-items: flex-end;
 }
 
@@ -197,7 +199,7 @@
 }
 
 .top-title {
-  margin-top: -87px;
+  margin-top: -55px;
   align-items: self-end;
 }
 
