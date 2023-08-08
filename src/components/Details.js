@@ -4,7 +4,7 @@ import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TopCard from './TopCard';
-import Map1 from '../assets/images/map1.svg';
+import Map4 from '../assets/images/map4.svg';
 
 const Details = () => {
   const { location } = useParams();
@@ -26,9 +26,9 @@ const Details = () => {
   return (
     <div>
       <TopCard
-        backgroundImage={Map1}
+        backgroundImage={Map4}
         location={locationData.location}
-        views={locationData.country}
+        views="700 Views"
         footerText="Stats by air preassure"
       />
       <div className="detail-list-container">

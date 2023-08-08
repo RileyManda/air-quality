@@ -129,7 +129,7 @@
 .content-card {
   display: flex;
   flex-direction: column;
-  background-size: 140px 60%;
+  background-size: 120px 60%;
   background-repeat: no-repeat;
   background-position: left top;
   background-color: var(--default-bg-theme);
@@ -139,7 +139,7 @@
   margin-bottom: 0;
   margin-right: 0;
   margin-left: 0;
-  margin-top: -25px;
+  margin-top: -32px;
   padding-top: 45px;
 }
 
@@ -149,6 +149,12 @@
   margin-left: 280px;
   margin-bottom: -63px;
   height: 250px;
+  font-weight: bold;
+}
+
+.sub-text {
+  font-weight: bold;
+  font-size: 12px;
 }
 
 /* Top card */
@@ -173,7 +179,8 @@
   background-position: left;
   align-items: flex-start;
   margin-bottom: 18px;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 25px;
 }
 
 .card-content {
@@ -239,10 +246,12 @@
 .top-title {
   margin-top: -55px;
   align-items: self-end;
+  font-weight: 900;
 }
 
 .top-subtext {
   margin-top: -60px;
+  font-weight: 900;
 }
 
 /* detail section */

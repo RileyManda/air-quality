@@ -48,7 +48,7 @@ const Home = () => {
       <TopCard
         backgroundImage={Map1}
         location="USA"
-        views="890"
+        views="890 Views"
         footerText="Stats by air preassure"
 
       />
