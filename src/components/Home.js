@@ -67,7 +67,7 @@ const Home = () => {
         isSearchVisible={isSearchVisible}
         setSearchKeyword={setSearchKeyword}
       />
-      <Container fluid>
+      <Container fluid data-testid="content-card">
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
           {filteredLocations.length > 0 ? (
             filteredLocations.map((location, index) => {
