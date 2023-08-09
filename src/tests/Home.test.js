@@ -31,4 +31,47 @@ describe('Home Component', () => {
       expect(loadingSpinner).toBeInTheDocument();
     });
   });
+  it('should render with correct props', () => {
+    const store = mockStore({
+      home: {
+        home: [],
+        isLoading: false,
+        error: null,
+      },
+    });
+
+    const backgroundImage = 'backgroundImageURL';
+    const location = 'USA';
+    const views = '890 Views';
+    const footerText = 'Stats by air pressure';
+    const toggleSearch = jest.fn();
+    const isSearchVisible = false;
+    const setSearchKeyword = jest.fn();
+
+    render(
+      <Provider store={store}>
+        <Home
+          backgroundImage={backgroundImage}
+          location={location}
+          views={views}
+          footerText={footerText}
+          toggleSearch={toggleSearch}
+          isSearchVisible={isSearchVisible}
+          setSearchKeyword={setSearchKeyword}
+        />
+      </Provider>,
+    );
+
+    const topCard = screen.getByTestId('top-card');
+    expect(topCard).toBeInTheDocument();
+
+    const topCardProps = topCard.querySelector('.top-card').props;
+    expect(topCardProps.backgroundImage).toEqual(backgroundImage);
+    expect(topCardProps.location).toEqual(location);
+    expect(topCardProps.views).toEqual(views);
+    expect(topCardProps.footerText).toEqual(footerText);
+    expect(topCardProps.toggleSearch).toEqual(toggleSearch);
+    expect(topCardProps.isSearchVisible).toEqual(isSearchVisible);
+    expect(topCardProps.setSearchKeyword).toEqual(setSearchKeyword);
+  });
 });
