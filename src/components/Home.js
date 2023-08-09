@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
-import Stack from 'react-bootstrap/Stack';
+// import Stack from 'react-bootstrap/Stack';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
@@ -67,13 +68,13 @@ const Home = () => {
         isSearchVisible={isSearchVisible}
         setSearchKeyword={setSearchKeyword}
       />
-      <Stack direction="horizontal" gap={1}>
+      <Container fluid>
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
           {filteredLocations.length > 0 ? (
             filteredLocations.map((location, index) => {
               const measurementKey = uuidv4();
               return (
-                <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
+                <Col key={uuidv4()} xs={6} md={6}>
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
                     <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
                       <Card.Header className="position-absolute top-0 end-0">
@@ -118,7 +119,7 @@ const Home = () => {
             <p>No data available.</p>
           )}
         </Row>
-      </Stack>
+      </Container>
     </div>
   );
 };
