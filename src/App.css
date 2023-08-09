@@ -186,3 +186,10 @@
   align-items: center;
   height: 100vh;
 }
+
+/* search field */
+.search-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

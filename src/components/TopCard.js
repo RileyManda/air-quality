@@ -6,7 +6,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopCard = ({
-  backgroundImage, location, views, footerText,
+  backgroundImage, location, views, footerText, toggleSearch, isSearchVisible,
 }) => (
   <Card className="top-card flex-container flex-column">
     <Stack direction="horizontal" gap={2}>
@@ -20,9 +20,20 @@ const TopCard = ({
     </Stack>
     <div className="footer-container fixed-footer">
       <Stack direction="horizontal" gap={2}>
-        <Card.Footer className="white-text">{footerText}</Card.Footer>
-        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#fff', marginLeft: '12px' }} />
-
+        <Card.Footer className="white-text">
+          {isSearchVisible ? (
+            <div className="search-field-container">
+              <input type="text" placeholder="Filter" />
+            </div>
+          ) : (
+            footerText
+          )}
+        </Card.Footer>
+        <FontAwesomeIcon
+          icon={faMagnifyingGlass}
+          style={{ color: '#fff', cursor: 'pointer' }}
+          onClick={toggleSearch}
+        />
       </Stack>
     </div>
   </Card>
@@ -33,6 +44,8 @@ TopCard.propTypes = {
   location: PropTypes.string.isRequired,
   views: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
+  toggleSearch: PropTypes.func.isRequired,
+  isSearchVisible: PropTypes.bool.isRequired,
 };
 
 export default TopCard;

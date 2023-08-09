@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,6 +14,7 @@ import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
 import TopCard from './TopCard';
 import LoadingSpinner from './Spinner';
+import SearchField from './SearchField';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -21,8 +23,18 @@ const Home = () => {
   const isLoading = useSelector((state) => state.home.isLoading);
   const error = useSelector((state) => state.home.error);
 
-  // eslint-disable-next-line max-len
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState('');
+
   const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
+  const filteredLocations = filteredData.filter((location) => location.location.toLowerCase().includes(searchKeyword.toLowerCase()));
+
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
+    if (!isSearchVisible) {
+      setSearchKeyword('');
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchData());
@@ -32,9 +44,7 @@ const Home = () => {
   }, [data]);
 
   if (isLoading) {
-    return (
-      <LoadingSpinner />
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {
@@ -54,11 +64,13 @@ const Home = () => {
         location="USA"
         views="890 Views"
         footerText="Stats by air preassure"
+        toggleSearch={toggleSearch}
       />
+      <SearchField isVisible={isSearchVisible} setSearchKeyword={setSearchKeyword} />
       <Stack direction="horizontal" gap={1}>
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
-          {filteredData.length > 0 ? (
-            filteredData.map((location, index) => {
+          {filteredLocations.length > 0 ? (
+            filteredLocations.map((location, index) => {
               const measurementKey = uuidv4();
               return (
                 <Col key={uuidv4()} xs={6} sm={6} md={6} lg={6}>
@@ -106,7 +118,6 @@ const Home = () => {
             <p>No data available.</p>
           )}
         </Row>
-
       </Stack>
     </div>
   );
