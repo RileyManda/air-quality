@@ -86,10 +86,11 @@
 }
 
 .title-text {
-  font-size: 12px;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 65px;
+  width: 50%;
 }
 
 .measurements-text {
@@ -196,6 +197,7 @@
 @media (min-width: 768px) {
   .content-card {
     background-size: 417px 60%;
+    background-position: center 20%;
     padding-top: 39px;
     margin-bottom: 1px;
     height: 375px;
@@ -206,16 +208,28 @@
   .card-content {
     justify-content: flex-start;
     align-items: flex-start;
-    margin-right: -4px;
-    margin-top: 150px;
+    margin-right: 29px;
+    margin-top: 104px;
   }
 
   .title-text {
-    font-size: 28px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 65px;
+    width: 60%;
   }
 
   .measurements-item {
     font-size: 18px;
+  }
+
+  .image-container {
+    min-height: 222px;
+  }
+
+  .top.card {
+    height: 300px;
   }
 }
 

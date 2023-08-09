@@ -85,7 +85,7 @@ const Home = () => {
                       >
 
                         <div className="card-info-container flex-container flex-column">
-                          <Card.Title className="title-text white-text bold ellipsis- multiline-2">
+                          <Card.Title style={{ width: '6rem' }} className="title-text white-text bold ellipsis- multiline-2 text-wrap">
                             {' '}
                             {location.location}
                           </Card.Title>
