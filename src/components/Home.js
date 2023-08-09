@@ -14,7 +14,6 @@ import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
 import TopCard from './TopCard';
 import LoadingSpinner from './Spinner';
-import SearchField from './SearchField';
 
 const Home = () => {
   const airQualityParameters = ['pm25'];
@@ -65,8 +64,9 @@ const Home = () => {
         views="890 Views"
         footerText="Stats by air preassure"
         toggleSearch={toggleSearch}
+        isSearchVisible={isSearchVisible}
+        setSearchKeyword={setSearchKeyword}
       />
-      <SearchField isVisible={isSearchVisible} setSearchKeyword={setSearchKeyword} />
       <Stack direction="horizontal" gap={1}>
         <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
           {filteredLocations.length > 0 ? (

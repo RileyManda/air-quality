@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Stack from 'react-bootstrap/Stack';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SearchField from './SearchField';
 
 const TopCard = ({
-  backgroundImage, location, views, footerText, toggleSearch, isSearchVisible,
+  backgroundImage, location, views,
+  footerText, toggleSearch, isSearchVisible,
+  setSearchKeyword,
 }) => (
   <Card className="top-card flex-container flex-column">
     <Stack direction="horizontal" gap={2}>
@@ -23,17 +26,20 @@ const TopCard = ({
         <Card.Footer className="white-text">
           {isSearchVisible ? (
             <div className="search-field-container">
-              <input type="text" placeholder="Filter" />
+
+              <SearchField isVisible={isSearchVisible} setSearchKeyword={setSearchKeyword} />
+
             </div>
           ) : (
             footerText
           )}
         </Card.Footer>
         <FontAwesomeIcon
-          icon={faMagnifyingGlass}
+          icon={isSearchVisible ? faXmark : faMagnifyingGlass}
           style={{ color: '#fff', cursor: 'pointer' }}
           onClick={toggleSearch}
         />
+
       </Stack>
     </div>
   </Card>
@@ -46,6 +52,7 @@ TopCard.propTypes = {
   footerText: PropTypes.string.isRequired,
   toggleSearch: PropTypes.func.isRequired,
   isSearchVisible: PropTypes.bool.isRequired,
+  setSearchKeyword: PropTypes.func.isRequired,
 };
 
 export default TopCard;
