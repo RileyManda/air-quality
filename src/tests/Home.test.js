@@ -56,3 +56,34 @@ describe('Home Component', () => {
     expect(contentCards.length).toBeGreaterThan(0);
   });
 });
+describe('Home Component', () => {
+  it('should render content cards with filtered data', () => {
+    const mockData = [
+      {
+        location: 'Location 1',
+        measurements: [
+          { parameter: 'pm25', value: 10, unit: 'µg/m³' },
+        ],
+      },
+    ];
+
+    const store = mockStore({
+      home: {
+        home: mockData,
+        isLoading: false,
+        error: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>
+      </Provider>,
+    );
+
+    const contentCards = screen.getAllByTestId('content-card');
+    expect(contentCards).toHaveLength(mockData.length);
+  });
+});
