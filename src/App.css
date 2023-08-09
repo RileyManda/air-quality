@@ -210,7 +210,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-right: 29px;
-    margin-top: 4px;
+    margin-top: 111px;
   }
 
   .title-text {
@@ -257,7 +257,7 @@
   .card-content {
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: -7px;
+    margin-top: 14px;
     margin-right: -7px;
   }
 
@@ -270,6 +270,6 @@
   }
 
   .card-info-container {
-    margin-top: -9px;
+    margin-top: 55px;
   }
 }
