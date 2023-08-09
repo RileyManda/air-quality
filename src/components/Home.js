@@ -9,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
-// import Stack from 'react-bootstrap/Stack';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
