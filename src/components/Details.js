@@ -47,7 +47,7 @@ const Details = () => {
       <div className="flex-container flex-column">
         {filteredMeasurements.map((metric, index) => (
           <div
-            key={uuidv4()} // Generate a unique key using uuidv4
+            key={uuidv4()}
             className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}
           >
             <div className="card-detail-label flex-container">
