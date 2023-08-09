@@ -257,8 +257,8 @@
   .card-content {
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 14px;
-    margin-right: -7px;
+    margin-top: -4px;
+    margin-right: -1px;
   }
 
   .title-text {
