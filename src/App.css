@@ -151,6 +151,7 @@
 
 .card-detail-label {
   flex: 1;
+  font-size: 19px;
 }
 
 .card-detail-value {
@@ -237,6 +238,10 @@
   .card-info-container {
     margin-top: 120px;
   }
+
+  .top-title-container {
+    margin-top: 10%;
+  }
 }
 
 /* Media query for mobile */
@@ -256,6 +261,10 @@
   }
 
   .title-text {
+    font-size: 12px;
+  }
+
+  .footer-text {
     font-size: 12px;
   }
 }

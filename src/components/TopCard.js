@@ -23,7 +23,7 @@ const TopCard = ({
     </Stack>
     <div className="footer-container fixed-footer">
       <Stack direction="horizontal" gap={2}>
-        <Card.Footer className="white-text">
+        <Card.Footer className="white-text footer-text">
           {isSearchVisible ? (
             <div className="search-field-container">
 
