@@ -197,12 +197,27 @@
 /* Media query for desktop */
 @media (min-width: 768px) {
   .content-card {
-    margin-right: 66px;
-    margin-left: 45px;
-    padding-top: 82px;
-    padding-right: 48px;
-    margin-bottom: -5px;
-    height: 279px;
+    background-size: 417px 60%;
+    padding-top: 39px;
+    margin-bottom: 1px;
+    height: 375px;
+    width: 90%;
+    margin-left: -7px;
+  }
+
+  .card-content {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: -4px;
+    margin-top: 150px;
+  }
+
+  .title-text {
+    font-size: 28px;
+  }
+
+  .measurements-item {
+    font-size: 18px;
   }
 }
 
