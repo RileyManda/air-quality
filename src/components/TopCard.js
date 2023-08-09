@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Stack from 'react-bootstrap/Stack';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopCard = ({
   backgroundImage, location, views, footerText,
@@ -16,7 +18,13 @@ const TopCard = ({
         </div>
       </Stack>
     </Stack>
-    <Card.Footer className="footer-container fixed-footer white-text">{footerText}</Card.Footer>
+    <div className="footer-container fixed-footer">
+      <Stack direction="horizontal" gap={2}>
+        <Card.Footer className="white-text">{footerText}</Card.Footer>
+        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#fff', marginLeft: '12px' }} />
+
+      </Stack>
+    </div>
   </Card>
 );
 
