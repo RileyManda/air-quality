@@ -225,11 +225,19 @@
   }
 
   .image-container {
-    min-height: 222px;
+    min-height: 297px;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 
   .top.card {
     height: 300px;
+  }
+
+  .top-title-container {
+    padding: 10px;
+    width: 50%;
+    margin-top: 59px;
   }
 }
 
