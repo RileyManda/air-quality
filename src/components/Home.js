@@ -72,6 +72,7 @@ const Home = () => {
           {filteredLocations.length > 0 ? (
             filteredLocations.map((location, index) => {
               const measurementKey = uuidv4();
+              const truncatedTitle = location.location.length > 20 ? `${location.location.slice(0, 20)}...` : location.location;
               return (
                 <Col key={uuidv4()} xs={6} md={6}>
                   <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
@@ -87,7 +88,7 @@ const Home = () => {
                         <div className="card-info-container flex-container flex-column">
                           <Card.Title style={{ width: '6rem' }} className="title-text white-text bold ellipsis- multiline-2 text-wrap">
                             {' '}
-                            {location.location}
+                            {truncatedTitle}
                           </Card.Title>
                         </div>
                         <div className="measurements-text white-text wrap-break">
