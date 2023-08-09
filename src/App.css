@@ -14,7 +14,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 .App {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Gill Sans', sans-serif;
   background-color: var(--default-bg-theme);
 }
 
@@ -185,4 +185,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+/* search field */
+.search-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
