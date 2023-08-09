@@ -33,7 +33,7 @@
 }
 
 .card-info-container {
-  margin-top: 63px;
+  margin-top: 40px;
 }
 
 .marging-0 {
@@ -210,7 +210,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-right: 29px;
-    margin-top: 20px;
+    margin-top: 4px;
   }
 
   .title-text {
@@ -258,6 +258,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: -7px;
+    margin-right: -7px;
   }
 
   .title-text {
@@ -266,5 +267,9 @@
 
   .footer-text {
     font-size: 12px;
+  }
+
+  .card-info-container {
+    margin-top: -9px;
   }
 }
