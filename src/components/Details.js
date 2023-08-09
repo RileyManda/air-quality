@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
@@ -43,11 +44,13 @@ const Details = () => {
         toggleSearch={toggleSearch}
         isSearchVisible={isSearchVisible}
       />
-      {' '}
       <div className="flex-container flex-column">
         {filteredMeasurements.map((metric, index) => (
-          <div key={metric.parameter} className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}>
-            <div className="card-detail-label flex-container ">
+          <div
+            key={uuidv4()} // Generate a unique key using uuidv4
+            className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}
+          >
+            <div className="card-detail-label flex-container">
               {metric.parameter}
               :
             </div>
@@ -59,9 +62,7 @@ const Details = () => {
             </div>
           </div>
         ))}
-
       </div>
-
     </div>
   );
 };
