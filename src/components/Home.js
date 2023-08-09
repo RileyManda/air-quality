@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Col from 'react-bootstrap/Col';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
+import Stack from 'react-bootstrap/Stack';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
 import { fetchData } from '../redux/home/homeSlice';
@@ -54,8 +55,8 @@ const Home = () => {
         views="890 Views"
         footerText="Stats by air preassure"
       />
-      <div className="card-container margin-0 paddig-0 wrap">
-        <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters">
+      <Stack direction="horizontal" gap={1}>
+        <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
           {filteredData.length > 0 ? (
             filteredData.map((location, index) => {
               const measurementKey = uuidv4();
@@ -88,7 +89,6 @@ const Home = () => {
                                   {' '}
                                   {metric.value}
                                   {' '}
-                                  {metric.unit}
                                 </div>
                               );
                             }
@@ -106,7 +106,8 @@ const Home = () => {
             <p>No data available.</p>
           )}
         </Row>
-      </div>
+
+      </Stack>
     </div>
   );
 };
