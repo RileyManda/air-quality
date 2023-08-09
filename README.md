@@ -103,7 +103,7 @@ Air-quality is a full stack app that displays numeric air-quality data from vari
 <!-- LIVE DEMO -->
  ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://)
+- [Live Demo](https://64d40f323072a01510d99ab1--keen-kataifi-c1ed91.netlify.app/detail)
 
 ## 🚀 Project Presentation <a name="live-demo"></a>
 
