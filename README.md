@@ -40,7 +40,8 @@
 # 📖 Air-quality <a name="about-project"></a>
 
 Air-quality is a full stack app that displays numeric air-quality data from various weather stations.The applications gets data from the api using axios and updates its states using redux-toolkit.Ths application was developed with quality and responsiveness in mind using react test library for TDD and react-boostrap for the ui.
-
+ <img src="app-screenshot.png" alt="logo" width="140"  height="auto" />
+  <img src="detail-screenshot.png" alt="logo" width="140"  height="auto" />
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -110,7 +111,7 @@ Air-quality is a full stack app that displays numeric air-quality data from vari
 <!-- LIVE DEMO -->
  ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://64d4216c14ebf7051d03f18d--keen-kataifi-c1ed91.netlify.app/)
+- [Live Demo](https://feature-deploy--keen-kataifi-c1ed91.netlify.app/)
 
 ## 🚀 Project Presentation <a name="project-presentation"></a>
 
