@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable max-len */
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TopCard from './TopCard';
@@ -15,17 +14,10 @@ const Details = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
 
-  useEffect(() => {
-    window.history.pushState({}, '', '/detail');
-    return () => {
-      window.history.pushState({}, '', '/');
-    };
-  }, []);
-
   if (!locationData) {
     return <p>No data available for this location.</p>;
   }
-  // eslint-disable-next-line max-len
+
   const filteredMeasurements = locationData.measurements.filter((metric) => metric.parameter.toLowerCase().includes(searchKeyword.toLowerCase()));
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -33,22 +25,23 @@ const Details = () => {
       setSearchKeyword('');
     }
   };
+
   return (
     <div>
       <TopCard
         backgroundImage={Map4}
         location={locationData.location}
-        views="700 Views"
+        description="Air Quality"
         footerText="CITY/TOWN BREAKDOWN-2013"
         setSearchKeyword={setSearchKeyword}
         toggleSearch={toggleSearch}
         isSearchVisible={isSearchVisible}
       />
       <div className="flex-container flex-column">
-        {filteredMeasurements.map((metric, index) => (
+        {filteredMeasurements.map((metric) => (
           <div
             key={uuidv4()}
-            className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}
+            className="card-detail flex-container flex-row bold"
           >
             <div className="card-detail-label flex-container">
               {metric.parameter}
@@ -58,7 +51,6 @@ const Details = () => {
               {metric.value}
               {' '}
               {metric.unit}
-              <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
             </div>
           </div>
         ))}

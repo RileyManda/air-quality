@@ -75,7 +75,7 @@
 }
 
 .sub-text {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .card-container {
@@ -144,7 +144,8 @@
 
 .top-title-container {
   padding: 10px;
-  width: 50%;
+  width: 54%;
+  margin-top: -20px;
 }
 
 /* card details */
@@ -192,4 +193,26 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+/* checker box pattern */
+
+.content-card.black,
+.content-card.white {
+  background-size: 120px 60%;
+  background-repeat: no-repeat;
+  background-position: left top;
+  margin-right: -17px;
+  margin-left: -6px;
+  padding-top: 29px;
+  margin-bottom: 16px;
+  height: 165px;
+}
+
+.content-card.black {
+  background-color: var(--bg-color-dark);
+}
+
+.content-card.white {
+  background-color: var(--default-bg-theme);
 }
