@@ -75,7 +75,7 @@
 }
 
 .sub-text {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .card-container {
@@ -144,7 +144,8 @@
 
 .top-title-container {
   padding: 10px;
-  width: 50%;
+  width: 54%;
+  margin-top: -33px;
 }
 
 /* card details */

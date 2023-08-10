@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TopCard from './TopCard';
@@ -16,7 +18,6 @@ const Details = () => {
     return <p>No data available for this location.</p>;
   }
 
-  // eslint-disable-next-line max-len
   const filteredMeasurements = locationData.measurements.filter((metric) => metric.parameter.toLowerCase().includes(searchKeyword.toLowerCase()));
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -30,6 +31,7 @@ const Details = () => {
       <TopCard
         backgroundImage={Map4}
         location={locationData.location}
+        description="Air Quality Data"
         footerText="CITY/TOWN BREAKDOWN-2013"
         setSearchKeyword={setSearchKeyword}
         toggleSearch={toggleSearch}
@@ -37,7 +39,10 @@ const Details = () => {
       />
       <div className="flex-container flex-column">
         {filteredMeasurements.map((metric) => (
-          <div key={metric.parameter} className="card-detail flex-container flex-row bold">
+          <div
+            key={uuidv4()}
+            className="card-detail flex-container flex-row bold"
+          >
             <div className="card-detail-label flex-container">
               {metric.parameter}
               :
