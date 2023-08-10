@@ -85,18 +85,36 @@ export const mobileMediaQuery = css`
       .card-info-container {
         margin-top: 55px;
       }
+
+        .sub-text {
+        margin-top: -36px;
+      }
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 393px) {
  .card-content {
-        margin-top: 13px;
+        margin-top: -3px;
+        padding-top: 12px;
       }
   }
 
-    @media (max-width: 393px) {
-    .card-content {
-        margin-top: 12px;
-    }
-    }
+    @media (max-width: 414px) {
+ .card-content {
+        padding-top: 20px;
+        margin-top: -1px;
+      }
+
+      .sub-text {
+        margin-top: -36px;
+      }
+
+      .top-card {
+        padding-top: 21px;
+      }
+
+      .content-card {
+        margin-bottom: 23px;
+      }
+  }
 `;
