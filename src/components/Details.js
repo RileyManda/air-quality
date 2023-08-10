@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
@@ -14,13 +14,6 @@ const Details = () => {
   const locationData = data.find((item) => item.location === location);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
-
-  useEffect(() => {
-    window.history.pushState({}, '', '/detail');
-    return () => {
-      window.history.pushState({}, '', '/');
-    };
-  }, []);
 
   if (!locationData) {
     return <p>No data available for this location.</p>;

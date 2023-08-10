@@ -84,7 +84,7 @@ const Home = () => {
                 const truncatedTitle = location.location.length > 20 ? `${location.location.slice(0, 20)}...` : location.location;
                 return (
                   <Col key={uuidv4()} xs={6} md={6}>
-                    <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/details/${encodeURIComponent(location.location)}/${uuidv4()}/${index}`} style={{ textDecoration: 'none' }}>
                       <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
                         <Card.Header className="position-absolute top-0 end-0">
                           <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} />
