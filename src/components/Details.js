@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TopCard from './TopCard';
@@ -18,6 +15,7 @@ const Details = () => {
   if (!locationData) {
     return <p>No data available for this location.</p>;
   }
+
   // eslint-disable-next-line max-len
   const filteredMeasurements = locationData.measurements.filter((metric) => metric.parameter.toLowerCase().includes(searchKeyword.toLowerCase()));
   const toggleSearch = () => {
@@ -26,6 +24,7 @@ const Details = () => {
       setSearchKeyword('');
     }
   };
+
   return (
     <div>
       <TopCard
@@ -38,11 +37,8 @@ const Details = () => {
         isSearchVisible={isSearchVisible}
       />
       <div className="flex-container flex-column">
-        {filteredMeasurements.map((metric, index) => (
-          <div
-            key={uuidv4()}
-            className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}
-          >
+        {filteredMeasurements.map((metric) => (
+          <div key={metric.parameter} className="card-detail flex-container flex-row bold">
             <div className="card-detail-label flex-container">
               {metric.parameter}
               :
@@ -51,7 +47,6 @@ const Details = () => {
               {metric.value}
               {' '}
               {metric.unit}
-              <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff', marginLeft: '12px' }} />
             </div>
           </div>
         ))}

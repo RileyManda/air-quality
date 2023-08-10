@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="details/:location/:uuid/:index" element={<Details />}>
+          <Route path="details/:location/" element={<Details />}>
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
