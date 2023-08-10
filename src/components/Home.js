@@ -32,7 +32,6 @@ const Home = () => {
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
-  // const locationData = useSelector((state) => state.home.locationData);
   const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
   const filteredLocations = filteredData.filter((location) => location.location.toLowerCase().includes(searchKeyword.toLowerCase()));
 
