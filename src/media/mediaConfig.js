@@ -5,17 +5,19 @@ export const desktopMediaQuery = css`
     .content-card {
       background-size: 417px 60%;
       background-position: center 20%;
-      padding-top: 39px;
+      padding-top: 200px;
       margin-bottom: 70px;
       height: 450px;
       width: 90%;
       margin-left: -7px;
+      margin-right: 110px;
+      margin-top: 23px;
       
       .card-content {
         justify-content: flex-start;
         align-items: flex-start;
-        margin-right: 29px;
-        margin-top: 111px;
+        margin-right: 48px;
+        margin-top: 10px;
       }
 
       .title-text {
@@ -30,14 +32,16 @@ export const desktopMediaQuery = css`
         font-size: 18px;
       }
 
-      .image-container {
-        min-height: 297px;
-        margin-top: 12px;
-        margin-bottom: 12px;
-      }
+     .image-container {
+       min-height: 400px;
+       margin-top: px;
+       margin-bottom: 12px;
+       width: 30%;
+       margin-left:200px;
+  }
 
       .top.card {
-        height: 300px;
+        height: 400px;
       }
 
       .card-info-container {
@@ -45,7 +49,7 @@ export const desktopMediaQuery = css`
       }
 
       .top-title-container {
-        margin-top: 10%;
+        margin-top: 49px;
       }
     }
   }
@@ -80,4 +84,16 @@ export const mobileMediaQuery = css`
       }
     }
   }
+
+  @media (max-width: 390px) {
+ .card-content {
+        margin-top: 13px;
+      }
+  }
+
+    @media (max-width: 393px) {
+    .card-content {
+        margin-top: 12px;
+    }
+    }
 `;
