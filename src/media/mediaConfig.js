@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const desktopMediaQuery = css`
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .content-card {
       background-size: 417px 60%;
       background-position: center 20%;
@@ -11,13 +11,13 @@ export const desktopMediaQuery = css`
       width: 90%;
       margin-left: -7px;
       margin-right: 110px;
-      margin-top: 23px;
+      margin-top: -35px;
       
       .card-content {
         justify-content: flex-start;
         align-items: flex-start;
         margin-right: 48px;
-        margin-top: 10px;
+        margin-top: -55px;
       }
 
       .title-text {
