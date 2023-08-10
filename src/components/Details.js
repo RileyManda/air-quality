@@ -31,7 +31,7 @@ const Details = () => {
       <TopCard
         backgroundImage={Map4}
         location={locationData.location}
-        description="Air Quality Data"
+        description="Air Quality"
         footerText="CITY/TOWN BREAKDOWN-2013"
         setSearchKeyword={setSearchKeyword}
         toggleSearch={toggleSearch}
