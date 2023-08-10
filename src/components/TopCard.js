@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchField from './SearchField';
 
 const TopCard = ({
-  backgroundImage, location, temperature,
+  backgroundImage, location,
   footerText, toggleSearch, isSearchVisible,
   setSearchKeyword,
 }) => (
@@ -18,7 +18,6 @@ const TopCard = ({
         <Stack gap={2} className="col-md-5 p-2 flex-end">
           <div className="top-title-container bold">
             <Card.Title className="top-title white-text ellipsis-multiline-2 p-2"><h2>{location}</h2></Card.Title>
-            <Card.Title className="sub-text white-text bold p-2"><h2>{temperature}</h2></Card.Title>
           </div>
         </Stack>
       </Stack>
@@ -50,7 +49,6 @@ const TopCard = ({
 TopCard.propTypes = {
   backgroundImage: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  temperature: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
   toggleSearch: PropTypes.func.isRequired,
   isSearchVisible: PropTypes.bool.isRequired,
