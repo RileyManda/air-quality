@@ -80,7 +80,7 @@ const Home = () => {
         <TopCard
           backgroundImage={Map1}
           location={data.length > 0 ? data[0].country : ''}
-          description="Air Quality Data"
+          description="Air-Quality"
           footerText="Stats by air pressure"
           toggleSearch={toggleSearch}
           isSearchVisible={isSearchVisible}
@@ -96,7 +96,14 @@ const Home = () => {
                 return (
                   <Col key={uuidv4()} xs={6} md={6}>
                     <Link to={`/details/${encodeURIComponent(location.location)}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
-                      <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
+                      <Card
+                        className={`content-card flex-container flex-column bold no-border flex-end ${(index % 4 < 2 && index % 2 === 0) || (index % 4 >= 2 && index % 2 !== 0)
+                          ? 'white'
+                          : 'black'
+                        }`}
+                        style={{ backgroundImage: `url(${Map2})` }}
+                      >
+
                         <Card.Header className="position-absolute top-0 end-0">
                           <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} />
                         </Card.Header>
