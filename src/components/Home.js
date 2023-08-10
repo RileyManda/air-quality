@@ -79,7 +79,7 @@ const Home = () => {
       <StyledHome>
         <TopCard
           backgroundImage={Map1}
-          location={data.length > 0 ? data[0].country : ''}
+          location={data.length > 0 ? data[0].country : 'Loading...'}
           description="Air-Quality"
           footerText="Stats by air pressure"
           toggleSearch={toggleSearch}
