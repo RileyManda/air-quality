@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
-import { fetchData } from '../redux/home/homeSlice';
+import { fetchData, showTemperature } from '../redux/home/homeSlice';
 import TopCard from './TopCard';
 import LoadingSpinner from './Spinner';
 import { desktopMediaQuery, mobileMediaQuery } from '../media/mediaConfig';
@@ -27,12 +27,13 @@ const Home = () => {
   const airQualityParameters = ['pm25'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
+  dispatch(showTemperature({ location: data.location, temperature: data.temperature }));
   const isLoading = useSelector((state) => state.home.isLoading);
   const error = useSelector((state) => state.home.error);
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
-
+  const mainLocationData = data.find((item) => item.location);
   const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
   const filteredLocations = filteredData.filter((location) => location.location.toLowerCase().includes(searchKeyword.toLowerCase()));
 
@@ -42,6 +43,16 @@ const Home = () => {
       setSearchKeyword('');
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchData()).then((action) => {
+      const { payload } = action;
+      if (payload.results && payload.results.length > 0) {
+        const firstLocation = payload.results[0];
+        dispatch(showTemperature({ location: firstLocation.location, temperature: firstLocation.temperature }));
+      }
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -69,9 +80,9 @@ const Home = () => {
       <StyledHome>
         <TopCard
           backgroundImage={Map1}
-          location="USA"
-          views="890 Views"
-          footerText="Stats by air preassure"
+          location={mainLocationData.location}
+          temperature={data.temperature}
+          footerText="Stats by air pressure"
           toggleSearch={toggleSearch}
           isSearchVisible={isSearchVisible}
           setSearchKeyword={setSearchKeyword}

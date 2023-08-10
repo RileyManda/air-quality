@@ -25,6 +25,13 @@ const homeSlice = createSlice({
       const displayData = 'Home states';
       state.home = displayData;
     },
+    showTemperature: (state, action) => {
+      const { location, temperature } = action.payload;
+      const locationData = state.home.find((item) => item.location === location);
+      if (locationData) {
+        locationData.temperature = temperature;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -43,5 +50,5 @@ const homeSlice = createSlice({
   },
 });
 
-export const { showData } = homeSlice.actions;
+export const { showData, showTemperature } = homeSlice.actions;
 export default homeSlice.reducer;
