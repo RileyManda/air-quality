@@ -236,7 +236,10 @@ Thank you for taking the time to explore this project! Your support means a lot 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to express my sincere gratitude to [Microverse](https://github.com/microverseinc), the dedicated reviewers, and collaborators. Your unwavering support, feedback, and collaborative efforts have played an immense role in making this journey a resounding success. I am truly grateful for your contributions and for being an integral part of my achievements. Thank you for your continued support.
+I would like to express my sincere gratitude to [Microverse](https://github.com/microverseinc), the dedicated reviewers, and collaborators. Your unwavering support, feedback, and collaborative efforts have played an immense role in making this journey a resounding success. I am truly grateful for your contributions and for being an integral part of my achievements.
+I would like to also send out special thanks to [Nelson Sakwa
+](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) for the original Ux design that inspired this project.
+Thank you for your continued support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Map1 from '../assets/images/map1.svg';
 import Map2 from '../assets/images/map2.svg';
-import { fetchData } from '../redux/home/homeSlice';
+import { fetchData, showLocation } from '../redux/home/homeSlice';
 import TopCard from './TopCard';
 import LoadingSpinner from './Spinner';
 import { desktopMediaQuery, mobileMediaQuery } from '../media/mediaConfig';
@@ -32,7 +32,6 @@ const Home = () => {
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
-
   const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
   const filteredLocations = filteredData.filter((location) => location.location.toLowerCase().includes(searchKeyword.toLowerCase()));
 
@@ -42,6 +41,17 @@ const Home = () => {
       setSearchKeyword('');
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchData()).then((action) => {
+      const { payload } = action;
+      if (payload.results && payload.results.length > 0) {
+        const firstLocation = payload.results[0];
+        const locationToShow = firstLocation.location || firstLocation.country;
+        dispatch(showLocation({ location: locationToShow }));
+      }
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -69,13 +79,14 @@ const Home = () => {
       <StyledHome>
         <TopCard
           backgroundImage={Map1}
-          location="USA"
-          views="890 Views"
-          footerText="Stats by air preassure"
+          location={data.length > 0 ? data[0].country : ''}
+          description="Air Quality Data"
+          footerText="Stats by air pressure"
           toggleSearch={toggleSearch}
           isSearchVisible={isSearchVisible}
           setSearchKeyword={setSearchKeyword}
         />
+
         <Container fluid data-testid="content-card">
           <Row xs={1} sm={2} md={2} lg={2} className="g-4 no-gutters p-2">
             {filteredLocations.length > 0 ? (
@@ -84,7 +95,7 @@ const Home = () => {
                 const truncatedTitle = location.location.length > 20 ? `${location.location.slice(0, 20)}...` : location.location;
                 return (
                   <Col key={uuidv4()} xs={6} md={6}>
-                    <Link to={`/details/${location.location}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/details/${encodeURIComponent(location.location)}/${uuidv4()}`} style={{ textDecoration: 'none' }}>
                       <Card className={`content-card flex-container flex-column bold no-border flex-end ${index % 2 === 1 ? 'darker' : ''}`} style={{ backgroundImage: `url(${Map2})` }}>
                         <Card.Header className="position-absolute top-0 end-0">
                           <FontAwesomeIcon icon={faCircleRight} style={{ color: '#fff' }} />
