@@ -39,7 +39,7 @@
 
 # 📖 Air-quality <a name="about-project"></a>
 
-Air-quality is a full stack app that displays numeric air-quality data from various weather stations in Japan.The applications gets data from the api using axios and updates its states using redux-toolkit.Ths application was developed with quality and responsiveness in mind using react test library for TDD and react-boostrap for the ui.
+Air-quality is a full stack app that displays numeric air-quality data from various weather stations.The applications gets data from the api using axios and updates its states using redux-toolkit.Ths application was developed with quality and responsiveness in mind using react test library for TDD and react-boostrap for the ui.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -85,7 +85,14 @@ Air-quality is a full stack app that displays numeric air-quality data from vari
  <details>
   <summary>React Bootstrap</summary>
   <ul>
-    <li><a href="https://api.openaq.org/">Open AQ API</a></li>
+    <li><a href="https://react-bootstrap.github.io/">React Bootstrap</a></li>
+  </ul>
+</details>
+
+ <details>
+  <summary>React Testing Library</summary>
+  <ul>
+    <li><a href="https://testing-library.com/docs/react-testing-library/intro/">React Bootstrap</a></li>
   </ul>
 </details>
 
@@ -94,8 +101,8 @@ Air-quality is a full stack app that displays numeric air-quality data from vari
 ### Features <a name="key-features"></a>
 
 **Home Page:Display Air Quality Data**
-
 **Details Page:Display Air Quality Data details**
+**Filter:Filter data based on keywords**
 
 <p align="right">
 (<a href="#readme-top">back to top</a>)</p>
