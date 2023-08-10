@@ -97,7 +97,7 @@ const Home = () => {
                           <div className="card-info-container flex-container flex-column">
                             <Card.Title style={{ width: '6rem' }} className="title-text white-text bold ellipsis- multiline-2 text-wrap">
                               {' '}
-                              {truncatedTitle}
+                              {truncatedTitle.toUpperCase()}
                             </Card.Title>
                           </div>
                           <div className="measurements-text white-text wrap-break">

@@ -66,6 +66,7 @@ export const mobileMediaQuery = css`
       padding-top: 29px;
       margin-bottom: 34px;
       height: 170px;
+      
 
       .card-content {
         justify-content: flex-start;

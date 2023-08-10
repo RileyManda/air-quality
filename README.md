@@ -114,7 +114,7 @@ Air-quality is a full stack app that displays numeric air-quality data from vari
 
 ## 🚀 Project Presentation <a name="project-presentation"></a>
 
-- [Project Presentation ](https://loom.com)
+- [Project Presentation ](https://www.loom.com/share/a0e8aafa6cdf45a9a7a0e07eac834d92?sid=fc3729f8-0efd-439c-a260-7991e9cddd6c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
