@@ -33,11 +33,14 @@ export const desktopMediaQuery = css`
       }
 
      .image-container {
-       min-height: 400px;
-       margin-top: px;
-       margin-bottom: 12px;
-       width: 30%;
-       margin-left:200px;
+      min-height: 270px;
+      height:335px;
+      background-size: cover;
+      background-position: left;
+      margin-left: 140px;
+      margin-right: -136px;
+      margin-top: 27px;
+      width: 40%;
   }
 
       .top.card {
@@ -49,7 +52,7 @@ export const desktopMediaQuery = css`
       }
 
       .top-title-container {
-        margin-top: 49px;
+        margin-top: 80px;
       }
     }
   }
