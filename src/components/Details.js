@@ -38,10 +38,10 @@ const Details = () => {
         isSearchVisible={isSearchVisible}
       />
       <div className="flex-container flex-column">
-        {filteredMeasurements.map((metric) => (
+        {filteredMeasurements.map((metric, index) => (
           <div
             key={uuidv4()}
-            className="card-detail flex-container flex-row bold"
+            className={`card-detail flex-container flex-row bold ${index % 2 === 1 ? 'darker' : ''}`}
           >
             <div className="card-detail-label flex-container">
               {metric.parameter}
