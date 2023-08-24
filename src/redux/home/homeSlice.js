@@ -15,6 +15,7 @@ const initialState = {
   home: [],
   isLoading: false,
   error: undefined,
+  isDataFetched: false,
 };
 
 const homeSlice = createSlice({
@@ -43,6 +44,7 @@ const homeSlice = createSlice({
       .addCase(fetchData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.home = action.payload.results;
+        state.isDataFetched = true;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.isLoading = false;
