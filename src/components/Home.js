@@ -24,7 +24,7 @@ const StyledHome = styled.div`
 `;
 
 const Home = () => {
-  const airQualityParameters = ['pm25', 'pm10', 'o3', 'co'];
+  const airQualityParameters = ['pm25', 'pm10'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
   const isLoading = useSelector((state) => state.home.isLoading);
