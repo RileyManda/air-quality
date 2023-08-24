@@ -24,7 +24,7 @@ const StyledHome = styled.div`
 `;
 
 const Home = () => {
-  const airQualityParameters = ['pm25'];
+  const airQualityParameters = ['pm25', 'pm10'];
   const dispatch = useDispatch();
   const data = useSelector((state) => state.home.home);
   const isLoading = useSelector((state) => state.home.isLoading);
@@ -34,6 +34,7 @@ const Home = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
   const filteredData = data.filter(({ measurements }) => measurements.some(({ parameter }) => airQualityParameters.includes(parameter)));
   const filteredLocations = filteredData.filter((location) => location.location.toLowerCase().includes(searchKeyword.toLowerCase()));
+  const isDataFetched = useSelector((state) => state.home.isDataFetched);
 
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -54,8 +55,10 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+    if (!isDataFetched) {
+      dispatch(fetchData());
+    }
+  }, [dispatch, isDataFetched]);
 
   useEffect(() => {
   }, [data]);
